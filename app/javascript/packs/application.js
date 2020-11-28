@@ -9,6 +9,20 @@ require("@rails/activestorage").start()
 require("channels")
 
 
+require("jquery")
+require("packs/bootstrap.bundle.min.js")
+require("packs/owl.carousel.min.js")
+require("packs/jquery.mousewheel.min.js")
+require("packs/jquery.mCustomScrollbar.min.js")
+require("packs/wNumb.js")
+require("packs/nouislider.min.js")
+require("packs/plyr.min.js")
+require("packs/jquery.morelines.min.js")
+require("packs/photoswipe.min.js")
+require("packs/photoswipe-ui-default.min.js")
+require("packs/main.js")
+	
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
