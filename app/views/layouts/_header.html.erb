@@ -5,9 +5,11 @@
 					<div class="col-12">
 						<div class="header__content">
 							<!-- header logo -->
-							<a href="index.html" class="header__logo">
-								<img src="img/logo.svg" alt="">
-							</a>
+							<!--<a href="index.html" class="header__logo">-->
+							<%= link_to root_path, :class => "header__logo" do %>	
+								<%= image_pack_tag "img/logo.svg" %>
+							<% end %>
+							<!--</a>-->
 							<!-- end header logo -->
 
 							<!-- header nav -->
@@ -50,7 +52,7 @@
 
 									<ul class="dropdown-menu header__dropdown-menu" aria-labelledby="dropdownMenuMore">
 										<!--<li><a href="about.html">About</a></li>-->
-										<%= link_to 'About', static_pages_about_path %>
+										<%= link_to 'About', about_path %>
 										<li><a href="signin.html">Sign In</a></li>
 										<li><a href="signup.html">Sign Up</a></li>
 										<li><a href="404.html">404 Page</a></li>
