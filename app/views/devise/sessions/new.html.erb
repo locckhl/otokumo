@@ -1,26 +1,58 @@
-<h2>Log in</h2>
+<div class="sign section--bg" data-bg="img/section/section.jpg" style="margin-top:50px">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="sign__content">
+						<!-- registration form -->
+						<!--<form action="#" class="sign__form">-->
+        				<%= form_for(resource, as: resource_name, url: session_path(resource_name),:html => {:class => "sign__form new_user"} ) do |f| %>
+        				  <%= render "devise/shared/error_messages", resource: resource %>
+        					<!--<a href="index.html" class="sign__logo">-->
+        					<!--	<img src="img/logo.svg" alt="">-->
+        					<!--</a>-->
+        					<%= link_to root_path, :class => "sign__logo" do %>	
+        						<%= image_pack_tag "img/logo.svg" %>
+        					<% end %>
+							
+                  
+                  <div class="field sign__group">
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", :class => "sign__input" %>
+                  </div>
+                  
+                  <div class="field sign__group">
+                    <%= f.password_field :password, autocomplete: "new-password", placeholder: "New Password", :class => "sign__input" %>
+                  </div>
+                  
+    							<!--<div class="sign__group">-->
+    							<!--	<input type="text" class="sign__input" placeholder="Name">-->
+    							<!--</div>-->
+    							
+    							
+    							
+                  <div class="sign__group sign__group--checkbox">
+                    <% if devise_mapping.rememberable? %>
+                        <%= f.check_box :remember_me  %>
+                        <%= f.label :remember_me %>
+                    <% end %>
+    								<!--<input id="remember" name="remember" type="checkbox" checked="checked">-->
+    								<!--<label for="remember">Remember Me</label>-->
+    							</div>
+    							
+    							
+    						  <div class="actions", style="width:100%">
+                    <%= f.submit 'Sign in', :style => "transition: 0.4s ease;cursor: pointer;border:none", :class => "sign__btn" %>
+                  </div>
+							
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+							<span class="sign__text">Don't have an account? <%= link_to 'Sign Up', new_user_registration_path %></span>
+							
+							<span class="sign__text"><a href="#">Forgot password?</a></span>
+						<!--</form>-->
+						<% end %>
+						<!-- registration form -->
+						<!--<%= render "devise/shared/links" %>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
