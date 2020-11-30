@@ -1,0 +1,21 @@
+<section class="section" style="background:white;margin-top:50px">
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <strong>User:</strong>
+    <%= @comment.user_id %>
+  </p>
+  
+  <p>
+    <strong>Song:</strong>
+    <%= @comment.song_id %>
+  </p>
+  
+  <p>
+    <strong>Comment:</strong>
+    <%= @comment.comment %>
+  </p>
+  
+  <%= link_to 'Edit', edit_comment_path(@comment) %> |
+  <%= link_to 'Back', comments_path %>
+</section
