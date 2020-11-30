@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
   resources :songs
+
+  get 'users/show'
+  devise_for :users
+
   root to: 'static_pages#home'
   get '/about', to: 'static_pages#about'
   get '/songs', to: 'static_pages#songs'
