@@ -7,10 +7,11 @@
 # be faster and is potentially less error prone than running all of your
 # migrations from scratch. Old migrations may fail to apply correctly if those
 # migrations use external dependencies or application code.
+
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
+  
 ActiveRecord::Schema.define(version: 2020_11_29_102506) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -40,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_11_29_102506) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+  
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "song_id"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  
+  end 
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 
@@ -53,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_11_29_102506) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
   end
 
 end
