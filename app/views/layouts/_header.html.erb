@@ -49,10 +49,15 @@
 								</li>
 								<% if not current_user %>
 									<li class="header__nav-item">
-										
 											<%= link_to 'Sign Up', new_user_registration_path, :class => "header__nav-link" %>
 										
 										<!--<a href="faq.html" class="header__nav-link">Help</a>-->
+									</li>
+									
+								<% else %>
+									<li class="header__nav-item">
+											<%= link_to 'Profile', users_show_path, :class => "header__nav-link" %>
+										
 									</li>
 								<% end %>
 								<!-- dropdown -->
