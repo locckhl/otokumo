@@ -1,8 +1,14 @@
-<section class="section" style="background:white;margin-top:50px">
-    <h1>New Song</h1>
-    
-    <%= render 'form', song: @song %>
-    
-    <%= link_to 'Back', songs_path %>
+<section class="section section--first section--bg" style="background:white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>New Song</h1>
+                
+                <%= render 'form', song: @song %>
+                
+                <%= link_to 'Back', songs_path %>
+            </div>
+		</div>
+	</div>
 </section>
 

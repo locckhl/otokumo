@@ -1,28 +1,34 @@
-<section class="section" style="background:white;margin-top:50px">
-    <p id="notice"><%= notice %></p>
-    
-    <p>
-      <strong>Title:</strong>
-      <%= @song.title %>
-    </p>
-    
-    <p>
-      <strong>Artist:</strong>
-      <%= @song.artist %>
-    </p>
-    
-    <p>
-       <% if @song.image.attached? %>
-         <%= image_tag @song.image, :style => "width:150px"  %>
-       <% end %>
-    </p>
-    
-    <p>
-       <% if @song.source.attached? %>
-           <%= audio_tag( rails_blob_url(@song.source), controls: true) %>
-       <% end %>
-    </p>
-     
-    <%= link_to 'Edit', edit_song_path(@song) %> |
-    <%= link_to 'Back', songs_path %>
+<section class="section section--first section--bg" style="background:white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p id="notice"><%= notice %></p>
+                
+                <p>
+                  <strong>Title:</strong>
+                  <%= @song.title %>
+                </p>
+                
+                <p>
+                  <strong>Artist:</strong>
+                  <%= @song.artist %>
+                </p>
+                
+                <p>
+                   <% if @song.image.attached? %>
+                     <%= image_tag @song.image, :style => "width:150px"  %>
+                   <% end %>
+                </p>
+                
+                <p>
+                   <% if @song.source.attached? %>
+                       <%= audio_tag( rails_blob_url(@song.source), controls: true) %>
+                   <% end %>
+                </p>
+                 
+                <%= link_to 'Edit', edit_song_path(@song) %> |
+                <%= link_to 'Back', songs_path %>
+            </div>
+		</div>
+	</div>
 </section>
