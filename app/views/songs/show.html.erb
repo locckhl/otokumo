@@ -41,8 +41,10 @@
        <li><%= comment.comment %>
        (<i><%= comment.user.email if comment.user %></i>) 
        <% if comment.user.email == current_user.email %>
-         <%= link_to 'Edit', edit_comment_path(comment) %> </li>
+         <%= link_to 'Edit', edit_comment_path(comment) %> 
+         <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
        <% end %>
+       </li>
     <% end %>
     </ul>
 </section>
