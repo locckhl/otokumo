@@ -20,6 +20,14 @@
                               </div>
                               
                               <div class="field sign__group">
+                                <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", :class => "sign__input" %>
+                              </div>
+                              
+                              <div class="field sign__group">
+                                <%= f.number_field :age, autofocus: true, autocomplete: "age", placeholder: "Age", :class => "sign__input" %>
+                              </div>
+                              
+                              <div class="field sign__group">
                                 <% if @minimum_password_length %>
                                 <em style="color:white">(<%= @minimum_password_length %> characters minimum)</em>
                                 <% end %><br />
