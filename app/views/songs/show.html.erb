@@ -38,8 +38,11 @@
     <h2>Comment List</h2>
     <ul>
       <% @song.comment.each do |comment|%>
-     <li><%= comment.comment %>
-     (<i><%= comment.user.email if comment.user %></i>) <%= link_to 'Edit', edit_comment_path(comment) %> </li>
+       <li><%= comment.comment %>
+       (<i><%= comment.user.email if comment.user %></i>) 
+       <% if comment.user.email == current_user.email %>
+         <%= link_to 'Edit', edit_comment_path(comment) %> </li>
+       <% end %>
     <% end %>
     </ul>
 </section>
