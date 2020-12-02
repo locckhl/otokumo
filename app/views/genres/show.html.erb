@@ -1,0 +1,15 @@
+<section class="section section--first section--bg" style="background:white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p id="notice"><%= notice %></p>
+<p>
+<strong>Genre:</strong>
+<%= @genre.name %>
+</p>
+<%= link_to 'Edit', edit_genre_path(@genre) %> |
+<%= link_to 'Back', genres_path %>
+            </div>
+		</div>
+	</div>
+</section>
