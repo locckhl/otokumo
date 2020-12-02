@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :age, presence: true
 
   has_one_attached :avatar
+  has_many :songs
 end
