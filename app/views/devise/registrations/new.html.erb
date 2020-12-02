@@ -1,4 +1,4 @@
-<div class="sign section--bg" data-bg="img/section/section.jpg" style="margin-top:50px">
+<div class="sign section--bg" data-bg="img/section/section.jpg" style="padding-top:90px">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -17,6 +17,14 @@
                   
                               <div class="field sign__group">
                                 <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", :class => "sign__input" %>
+                              </div>
+                              
+                              <div class="field sign__group">
+                                <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", :class => "sign__input" %>
+                              </div>
+                              
+                              <div class="field sign__group">
+                                <%= f.number_field :age, autofocus: true, autocomplete: "age", placeholder: "Age", :class => "sign__input" %>
                               </div>
                               
                               <div class="field sign__group">

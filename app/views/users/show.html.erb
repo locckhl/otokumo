@@ -1,2 +1,30 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<section class="section section--first section--bg" style="background:white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>プロフィール</h1>
+        
+            <h3>名前</h3>
+            <%= @user.name %>
+            
+            <h3>年齢</h3>
+            <%= @user.age %>
+            
+            <h3>メールアドレス</h3>
+            
+            <%= @user.email %>    
+            
+            <div>
+              <% if @user.avatar.attached? %>
+                <%= image_tag @user.avatar, :style => "width:150px" %>
+              <% end %>
+            </div>
+        
+            <%= link_to "Edit" , edit_user_registration_path %>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+</section>

@@ -1,50 +1,56 @@
-<section class="section" style="background:white;margin-top:50px">
-    <p id="notice"><%= notice %></p>
-    
-    <p>
-      <strong>Title:</strong>
-      <%= @song.title %>
-    </p>
-    
-    <p>
-      <strong>Artist:</strong>
-      <%= @song.artist %>
-    </p>
-    
-    <p>
-       <% if @song.image.attached? %>
-         <%= image_tag @song.image, :style => "width:150px"  %>
-       <% end %>
-    </p>
-    
-    <p>
-       <% if @song.source.attached? %>
-           <%= audio_tag( rails_blob_url(@song.source), controls: true) %>
-       <% end %>
-    </p>
-     
-    <%= link_to 'Edit', edit_song_path(@song) %> |
-    <%= link_to 'Back', songs_path %>
-    <h2>Comment</h2>
-    <%= form_with(model: @comment, local: true) do |form| %>
-      <div class= "field">
-        <%= form.text_area :comment %>
-        <%= form.hidden_field :song_id, :value => @song.id %>
-      </div>
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-    <% end %>
-    <h2>Comment List</h2>
-    <ul>
-      <% @song.comment.each do |comment|%>
-       <li><%= comment.comment %>
-       (<i><%= comment.user.email if comment.user %></i>) 
-       <% if comment.user.email == current_user.email %>
-         <%= link_to 'Edit', edit_comment_path(comment) %> 
-         <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
-       <% end %>
-       </li>
-    <% end %>
-    </ul>
+<section class="section section--first section--bg" style="background:white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+              <p id="notice"><%= notice %></p>
+
+              <p>
+                <strong>Title:</strong>
+                <%= @song.title %>
+              </p>
+
+              <p>
+                <strong>Artist:</strong>
+                <%= @song.artist %>
+              </p>
+
+              <p>
+                 <% if @song.image.attached? %>
+                   <%= image_tag @song.image, :style => "width:150px"  %>
+                 <% end %>
+              </p>
+
+              <p>
+                 <% if @song.source.attached? %>
+                     <%= audio_tag( rails_blob_url(@song.source), controls: true) %>
+                 <% end %>
+              </p>
+
+              <%= link_to 'Edit', edit_song_path(@song) %> |
+              <%= link_to 'Back', songs_path %>
+              <h2>Comment</h2>
+              <%= form_with(model: @comment, local: true) do |form| %>
+                <div class= "field">
+                  <%= form.text_area :comment %>
+                  <%= form.hidden_field :song_id, :value => @song.id %>
+                </div>
+                <div class="actions">
+                  <%= form.submit %>
+                </div>
+              <% end %>
+              <h2>Comment List</h2>
+              <ul>
+                <% @song.comment.each do |comment|%>
+                 <li><%= comment.comment %>
+                 (<i><%= comment.user.email if comment.user %></i>) 
+                 <% if comment.user.email == current_user.email %>
+                   <%= link_to 'Edit', edit_comment_path(comment) %> 
+                   <%= link_to 'Delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+                 <% end %>
+                 </li>
+              <% end %>
+              </ul>
+            </div>
+		</div>
+	</div>
 </section>
