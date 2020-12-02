@@ -1,37 +1,61 @@
-<%= form_with(model: song, local: true) do |form| %>
-  <% if song.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
 
-      <ul>
-        <% song.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+<div class="sign__content">
+        				<%= form_with(model: song, local: true, :class => "sign__form") do |f| %>
+        				 <% if song.errors.any? %>
+          				  <div class="err-father">
+            					<div id="error_explanation">
+                        <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+                  
+                        <ul>
+                          <% song.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                          <% end %>
+                        </ul>
+                      </div>
+            				</div>
+          				<% end %>
+        					<!--<a href="index.html" class="sign__logo">-->
+        					<!--	<img src="img/logo.svg" alt="">-->
+        					<!--</a>-->
+        					<%= link_to root_path, :class => "sign__logo" do %>	
+        						<%= image_pack_tag "img/logo.svg" %>
+        					<% end %>
+							
+                  
+                              <div class="field sign__group">
+                                <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "Title", :class => "sign__input" %>
+                              </div>
+                              
+                              <div class="field sign__group">
+                                <%= f.text_field :artist, autofocus: true, autocomplete: "artist", placeholder: "Artist", :class => "sign__input" %>
+                              </div>
+                              
+                              <label for="song_image" class="custom-file-upload sign__btn">
+                                  <i class="fa fa-cloud-upload"></i> Image
+                              </label>
+                              <%= f.file_field :image, :id => "song_image"%><br>
+                              
+                              <label for="song_source" class="custom-file-upload sign__btn">
+                                  <i class="fa fa-cloud-upload"></i> Song file
+                              </label>
+                              <%= f.file_field :source, :id => "song_source"%><br>
+                            
+                              
+    							<!--<div class="sign__group">-->
+    							<!--	<input type="text" class="sign__input" placeholder="Name">-->
+    							<!--</div>-->
+    
+    							
+    						  <div class="actions", style="width:100%">
+                                <%= f.submit 'Submit song', :style => "transition: 0.4s ease;cursor: pointer;border:none", :class => "sign__btn" %>
+                              </div>
+							
+              <% if action_name == "edit" %>
+							  <span class="sign__text"> New song ? <%= link_to 'New song', new_song_path %></span>
+							<% end %>
+						<!--</form>-->
+						<% end %>
+						<!-- registration form -->
 
-  <div class="field">
-    <%= form.label :artist %>
-    <%= form.text_field :artist %>
-  </div>
-  
-  <div class="field">
-     <%= form.label :image %>
-     <%= form.file_field :image %><br>
-   </div>
-   
-   <div class="field">
-     <%= form.label :source %>
-     <%= form.file_field :source %><br>
-   </div>
-   
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
