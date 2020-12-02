@@ -6,7 +6,9 @@
 						<!-- registration form -->
 						<!--<form action="#" class="sign__form">-->
         				<%= form_for(resource, as: resource_name, url: registration_path(resource_name),:html => {:class => "sign__form new_user"} ) do |f| %>
-        				  <%= render "devise/shared/error_messages", resource: resource %>
+        				  <div class="err-father">
+          					<%= render "devise/shared/error_messages", resource: resource %>
+          				</div>
         					<!--<a href="index.html" class="sign__logo">-->
         					<!--	<img src="img/logo.svg" alt="">-->
         					<!--</a>-->
