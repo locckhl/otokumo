@@ -1,7 +1,7 @@
 <!-- details -->
 	<section class="section details">
 		<!-- details background -->
-		<div class="details__bg" data-bg="img/home/home__bg.jpg"></div>
+		<div class="details__bg" ></div>
 		<!-- end details background -->
 
 		<!-- details content -->
@@ -43,7 +43,7 @@
 									<ul class="card__meta">
 										<li><span>Genre:</span> 
 											<% @song.genres.each do |genre| %>
-												<%= link_to genre.name, genre_path %>
+												<a href="/genres/<%= genre.id %>"><%= genre.name %></a>
 											<% end %>
 										</li>
 										<li><span>Artist:</span> <%= @song.artist %></li>

@@ -3,12 +3,7 @@
 	<!-- home -->
 	<section class="home" style="padding-bottom:20px">
 		<!-- home bg -->
-		<div class="owl-carousel home__bg">
-			<div class="item home__cover" data-bg="img/home/home__bg.jpg"></div>
-			<div class="item home__cover" data-bg="img/home/home__bg2.jpg"></div>
-			<div class="item home__cover" data-bg="img/home/home__bg3.jpg"></div>
-			<div class="item home__cover" data-bg="img/home/home__bg4.jpg"></div>
-		</div>
+
 		<!-- end home bg -->
 
 		
@@ -22,9 +17,8 @@
 				<div class="row">
 					<div class="col-12">
 						<!-- content title -->
-						<h2 class="content__title">New songs</h2>
+							<h2 class="content__title">New songs</h2>
 						<!-- end content title -->
-
 						
 						<!-- end content mobile tabs nav -->
 					</div>
@@ -63,8 +57,9 @@
 												Genre: 
 												<% song.genres.each do |genre| %>
 												<h3 class="card__title">
-												<a href="#"><%= genre.name %></a>
+													<a href="/genres/<%= genre.id %>"><%= genre.name %></a>
 												</h3>
+												&ensp;
 												<% end %>
 											</span>
 										</div>

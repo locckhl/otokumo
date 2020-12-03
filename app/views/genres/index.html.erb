@@ -7,7 +7,12 @@
 					<div class="section__wrap">
 						<!-- section title -->
 						<h2 class="section__title">Genres list
-						| <%= link_to 'New Genre', new_genre_path %>
+							<% if admin %>
+								| 
+								<%= link_to 'New Genre', new_genre_path %>
+							<!-- end content title -->
+							<% end %>
+					
 						</h2>
 						<!-- end section title -->
 
@@ -40,8 +45,12 @@
                             <% end %>
 						</div>
 					</div>
-					<%= link_to 'Edit', edit_genre_path(genre) %>,  
-					<%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<% if admin %>
+						<%= link_to 'Edit', edit_genre_path(genre) %>,  
+						<%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<!-- end content title -->
+					<% end %>
+					
 					<!-- end card -->
 				<% end %>
 

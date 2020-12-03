@@ -9,17 +9,24 @@
 admin = User.create!(
     email: "admin@admin.com",
     name: "admin",
-    age: 21,
-    password: "admin1",
-    password_confirmation: "admin1",
+    age: 99,
+    password: "123456",
+    password_confirmation: "123456",
     isAdmin: true
 )
 
+genres = ['POP','RAP','ANISONG','CLASSIC','OPERA']
+genres.each do |genre|
+   Genre.create!(
+        name:genre
+    ) 
+end
 
 song1 = Song.create!(
-    title: "Am Tham Ben Em2",
+    title: "Am Tham Ben Em",
     artist: "Son Tung",
-    user_id: admin.id
+    user_id: admin.id,
+    genres:[Genre.find(1),Genre.find(2)]
     # source: File.read()
  )
  
@@ -35,9 +42,10 @@ song1.image.attach(
 )
 
 song2 = Song.create!(
-    title: "Bay len ",
-    artist: "Son Tung",
-    user_id: admin.id
+    title: "Bay len nhe nu cuoi",
+    artist: "Miu le",
+    user_id: admin.id,
+    genres:[Genre.find(1)]
     # source: File.read()
  )
  
@@ -48,13 +56,7 @@ song2.source.attach(
 )
   
 song2.image.attach(
-    io: File.open(Rails.root.join('public', 'avatar','ATBE.jpg')),
-    filename: 'ATBE.jpg'
+    io: File.open(Rails.root.join('public', 'avatar','miule.jpg')),
+    filename: 'miule.jpg'
 )
 
-genres = ['pop','rap','anisong']
-genres.each do |genre|
-   Genre.create!(
-        name:genre   
-    ) 
-end
