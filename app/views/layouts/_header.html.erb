@@ -65,9 +65,9 @@
 
 							<!-- header auth -->
 							<div class="header__auth">
-								<button class="header__search-btn" type="button">
-									<i class="icon ion-ios-search"></i>
-								</button>
+								<!--<button class="header__search-btn" type="button">-->
+								<!--	<i class="icon ion-ios-search"></i>-->
+								<!--</button>-->
 								<% if current_user %>
 									<%= link_to destroy_user_session_path, method: :delete, :class => 'header__sign-in' do %>
 										<i class="icon ion-ios-log-in"></i>
@@ -101,19 +101,19 @@
 		</div>
 
 		<!-- header search -->
-		<form action="#" class="header__search">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="header__search-content">
-							<input type="text" placeholder="Search for a movie, TV Series that you are looking for">
+		<!--<form action="#" class="header__search">-->
+		<!--	<div class="container">-->
+		<!--		<div class="row">-->
+		<!--			<div class="col-12">-->
+		<!--				<div class="header__search-content">-->
+		<!--					<input type="text" placeholder="Search for a movie, TV Series that you are looking for">-->
 
-							<button type="button">search</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
+		<!--					<button type="button">search</button>-->
+		<!--				</div>-->
+		<!--			</div>-->
+		<!--		</div>-->
+		<!--	</div>-->
+		<!--</form>-->
 		<!-- end header search -->
 	</header>
 	<!-- end header -->
