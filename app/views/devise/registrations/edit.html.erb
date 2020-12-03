@@ -1,60 +1,72 @@
-<section class="section" style="background:white;margin-top:50px">  
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-  
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
-    
-    <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-    </div>
-    
-    <div class="field">
-      <%= f.label :age %><br />
-      <%= f.number_field :age, autofocus: true, autocomplete: "age" %>
-    </div>
-    
-    <div class="field">
-      <%= f.label :avatar %><br />
-      <%= f.file_field :avatar, autofocus: true, autocomplete: "avatar" %>
-    </div>
-  
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
-  
-    <div class="field">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
-  
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
-  <% end %>
-  
-  <h3>Cancel my account</h3>
-  
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  
-  <%= link_to "Back", :back %>
-</section>
+
+
+<div class="sign section--bg" data-bg="img/section/section.jpg" style="padding-top:90px">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+				  <h1 class="cowhite">Edit</h1>
+					<div class="sign__content">
+						<!-- registration form -->
+						<!--<form action="#" class="sign__form">-->
+						<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put,:class => "sign__form new_user cowhite"  }) do |f| %>
+        				  <div class="err-father">
+          					<%= render "devise/shared/error_messages", resource: resource %>
+          				</div>
+        					<!--<a href="index.html" class="sign__logo">-->
+        					<!--	<img src="img/logo.svg" alt="">-->
+        					<!--</a>-->
+        					<%= link_to root_path, :class => "sign__logo" do %>	
+        						<%= image_pack_tag "img/logo.svg" %>
+        					<% end %>
+							
+                  
+                              <div class="field sign__group">
+                                <%= f.label :email %><br />
+                                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", :class => "sign__input" %>
+                              </div>
+                              
+                              <div class="field sign__group">
+                                <%= f.label :name %><br />
+                                <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name", :class => "sign__input" %>
+                              </div>
+                              
+                              <div class="field sign__group">
+                                <%= f.label :age %><br />
+                                <%= f.number_field :age, autofocus: true, autocomplete: "age", placeholder: "Age", :class => "sign__input" %>
+                              </div>
+                              
+                              
+                              <div class="field sign__group">
+                                <%= f.label :password %> <br />
+                                <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", :class => "sign__input" %>
+                                <% if @minimum_password_length %>
+                                  <br />
+                                  <em><%= @minimum_password_length %> characters minimum</em>
+                                <% end %>
+                              </div>
+                            
+                              <div class="field sign__group">
+                                <%= f.label :password_confirmation %><br />
+                                <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Password confirmation", :class => "sign__input" %>
+                              </div>
+                            
+                              <div class="field sign__group">
+                                <%= f.label :current_password %> <br />
+                                <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current Password", :class => "sign__input" %>
+                              </div>
+                            
+
+    						  <div class="actions", style="width:100%">
+                                <%= f.submit 'Update', :style => "transition: 0.4s ease;cursor: pointer;border:none", :class => "sign__btn" %>
+                              </div>
+							
+
+						<!--</form>-->
+						<% end %>
+						<!-- registration form -->
+						<!--<%= render "devise/shared/links" %>-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

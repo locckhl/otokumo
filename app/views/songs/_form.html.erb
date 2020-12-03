@@ -32,7 +32,7 @@
                     </div>
                     
                     
-                    <div class="field sign__group" style="color:white">
+                    <div class="field sign__group" style="color:white;width:100%">
                       <%= f.label :genre_ids, "Genres" %>
                       <div class="checkbox-form">
                         <div class="checkbox-area">
@@ -42,7 +42,6 @@
                                 <div class="row-calendar-check">
                                     <!--<h6><%= genre.name %></h6>-->
                                     <ul>
-                    
                                       <li>
                                           <%= check_box_tag "song[genre_ids][]",genre.id,@song.genre_ids.include?(genre.id), { id: "song_genre_ids_#{genre.id}" } %>
                                           <%= label_tag "song[genre_ids][#{genre.id}]",genre.name %>

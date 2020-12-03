@@ -62,7 +62,9 @@
 											<span class="card__category" style="color:white">
 												Genre: 
 												<% song.genres.each do |genre| %>
-													<%= genre.name %>
+												<h3 class="card__title">
+												<a href="#"><%= genre.name %></a>
+												</h3>
 												<% end %>
 											</span>
 										</div>

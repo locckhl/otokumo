@@ -22,3 +22,21 @@ input[type="file"] {
     cursor: pointer;
     border:none;
 }
+
+.cowhite{
+    color:white;
+}
+
+.genre_link{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-width:100px;
+    min-height:80px;
+    text-decoration:none;
+    padding:10px 5px 10px 5px;
+    border:0.5px solid black;
+    background-color:#FF5692;
+    color:white;
+    border-radius:10px;
+}

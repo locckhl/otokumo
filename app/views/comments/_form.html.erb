@@ -1,32 +1,38 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-        <% comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+<div class="sign__content" style="align-items:start">
+  <%= form_with(model: comment, local: true, :class => "sign__form") do |form| %>
+    <% if comment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+        <ul>
+          <% comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <%= link_to root_path, :class => "sign__logo" do %>	
+        						<%= image_pack_tag "img/logo.svg" %>
+        					<% end %>
+  
+    <p>
+      <strong>User:</strong>
+      <%= @comment.user.email %>
+    </p>
+    
+    <p>
+      <strong>Song:</strong>
+      <%= @comment.song_id %>
+    </p>
+  
+    <div class="field">
+      <%= form.label :comment %>
+      <%= form.text_area :comment, autofocus: true, autocomplete: "comment", placeholder: "Comment", :class => "sign__input" %>
+    </div>
+  
+  <div class="actions", style="width:100%">
+      <%= form.submit 'Submit', :style => "transition: 0.4s ease;cursor: pointer;border:none", :class => "sign__btn" %>
     </div>
   <% end %>
-
-  <p>
-    <strong>User:</strong>
-    <%= @comment.user.email %>
-  </p>
-  
-  <p>
-    <strong>Song:</strong>
-    <%= @comment.song_id %>
-  </p>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
