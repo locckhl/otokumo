@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         url = "/songs/" + @comment.song_id.to_s
-        format.html { redirect_to url, notice: 'Comment was successfully created.' }
+        format.html { redirect_to url}
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -57,11 +57,13 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
       url = "/songs/" + @comment.song_id.to_s
       format.html { redirect_to url }
       format.json { head :no_content }
+      format.js   { render :layout => false }
     end
   end
 
