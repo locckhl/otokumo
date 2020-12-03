@@ -16,20 +16,45 @@ admin = User.create!(
 )
 
 
-song = Song.create!(
+song1 = Song.create!(
     title: "Am Tham Ben Em2",
     artist: "Son Tung",
     user_id: admin.id
     # source: File.read()
  )
  
-song.source.attach(
+song1.source.attach(
     io: File.open(Rails.root.join('public','mp3', 'Am Tham Ben Em - Son Tung M- TP [320kbps_MP3].mp3')),
     filename: 'Am Tham Ben Em - Son Tung M- TP [320kbps_MP3].mp3',
     content_type: 'audio/mpeg'
 )
   
-song.image.attach(
+song1.image.attach(
     io: File.open(Rails.root.join('public', 'avatar','ATBE.jpg')),
     filename: 'ATBE.jpg'
 )
+
+song2 = Song.create!(
+    title: "Bay len ",
+    artist: "Son Tung",
+    user_id: admin.id
+    # source: File.read()
+ )
+ 
+song2.source.attach(
+    io: File.open(Rails.root.join('public','mp3', 'Bay Len Nhe Nu Cuoi - Miu Le [320kbps_MP3].mp3')),
+    filename: 'Bay Len Nhe Nu Cuoi - Miu Le [320kbps_MP3].mp3',
+    content_type: 'audio/mpeg'
+)
+  
+song2.image.attach(
+    io: File.open(Rails.root.join('public', 'avatar','ATBE.jpg')),
+    filename: 'ATBE.jpg'
+)
+
+genres = ['pop','rap','anisong']
+genres.each do |genre|
+   Genre.create!(
+        name:genre   
+    ) 
+end

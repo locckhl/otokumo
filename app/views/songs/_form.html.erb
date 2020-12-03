@@ -23,23 +23,47 @@
         					<% end %>
 							
                   
-                              <div class="field sign__group">
-                                <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "Title", :class => "sign__input" %>
+                    <div class="field sign__group">
+                      <%= f.text_field :title, autofocus: true, autocomplete: "title", placeholder: "Title", :class => "sign__input" %>
+                    </div>
+                    
+                    <div class="field sign__group">
+                      <%= f.text_field :artist, autofocus: true, autocomplete: "artist", placeholder: "Artist", :class => "sign__input" %>
+                    </div>
+                    
+                    
+                    <div class="field sign__group" style="color:white">
+                      <%= f.label :genre_ids, "Genres" %>
+                      <div class="checkbox-form">
+                        <div class="checkbox-area">
+                          <div class="checkbox-grid">
+                          <% Genre.all.each do |genre| %>
+                           
+                                <div class="row-calendar-check">
+                                    <!--<h6><%= genre.name %></h6>-->
+                                    <ul>
+                    
+                                      <li>
+                                          <%= check_box_tag "song[genre_ids][]",genre.id,@song.genre_ids.include?(genre.id), { id: "song_genre_ids_#{genre.id}" } %>
+                                          <%= label_tag "song[genre_ids][#{genre.id}]",genre.name %>
+                                      </li>
+                                    </ul>
                               </div>
-                              
-                              <div class="field sign__group">
-                                <%= f.text_field :artist, autofocus: true, autocomplete: "artist", placeholder: "Artist", :class => "sign__input" %>
-                              </div>
-                              
-                              <label for="song_image" class="custom-file-upload sign__btn">
-                                  <i class="fa fa-cloud-upload"></i> Image
-                              </label>
-                              <%= f.file_field :image, :id => "song_image"%><br>
-                              
-                              <label for="song_source" class="custom-file-upload sign__btn">
-                                  <i class="fa fa-cloud-upload"></i> Song file
-                              </label>
-                              <%= f.file_field :source, :id => "song_source"%><br>
+                          <% end %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <label for="song_image" class="custom-file-upload sign__btn">
+                        <i class="fa fa-cloud-upload"></i> Image
+                    </label>
+                    <%= f.file_field :image, :id => "song_image"%><br>
+                    
+                    <label for="song_source" class="custom-file-upload sign__btn">
+                        <i class="fa fa-cloud-upload"></i> Song file
+                    </label>
+                    <%= f.file_field :source, :id => "song_source"%><br>
                             
                               
     							<!--<div class="sign__group">-->

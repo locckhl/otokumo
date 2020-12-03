@@ -1,0 +1,115 @@
+@import 'responsive';
+
+$checkbox-height: 50px;
+
+
+// Checkbox style
+.checkbox-form{
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+
+.checkbox-area{
+    width: 90%;
+    margin: 0 auto;
+    .checkbox-grid{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 1em;
+        .row-calendar-check{
+            h4{
+                text-align: center;
+                height: $checkbox-height;
+                line-height: $checkbox-height;
+            }
+            ul{
+                width: 100%;
+                li{
+                    margin-bottom: 1em;
+                    width: 100%;
+
+                    height: $checkbox-height;
+                    list-style: none;
+                    label{
+                        line-height: $checkbox-height;
+                        text-align: center;
+                        width: 100%;
+                        height: $checkbox-height;
+                        border: double 1px white;
+                        background-color: rgb(124, 122, 122);
+                        border-radius: 10px;
+                        cursor: pointer;
+                        color: white;
+                    }
+                    input[type=checkbox] + label{
+                        display: block;
+                    }
+                    input[type=checkbox]{
+                        display: none;
+                    }
+                    input[type=checkbox] + label:hover{
+                        filter: brightness(1.2);
+                    }
+                    input[type=checkbox]:checked + label{
+                        background-color: #1DA1F2;
+                        animation: checkbox-animation 1s;
+                    }
+                    @keyframes checkbox-animation {
+                        from{
+                            filter: hue-rotate(100deg);
+                        }
+                        to{
+                            filter: hue-rotate(0deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include Responsive(XS){
+        width: 100%;
+        font-size: 0.8rem;
+        .checkbox-grid{
+            gap: 0;
+            .row-calendar-check{
+                h6{
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+.label-for-show-active{
+    line-height: $checkbox-height;
+    text-align: center;
+    width: 100%;
+    height: $checkbox-height;
+    border: double 1px white;
+    background-color: #1DA1F2;
+    border-radius: 10px;
+    color: white;
+    @include Responsive(XS){
+        width: 80%;
+    }
+}
+
+.label-for-show{
+    line-height: $checkbox-height;
+    text-align: center;
+    width: 100%;
+    height: $checkbox-height;
+    border: double 1px white;
+    background-color: rgb(124, 122, 122);
+    border-radius: 10px;
+    color: white;
+    @include Responsive(XS){
+        width: 80%;
+    }
+}

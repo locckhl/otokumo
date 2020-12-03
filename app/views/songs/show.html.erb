@@ -41,8 +41,11 @@
 									</div>
 
 									<ul class="card__meta">
-										<li><span>Genre:</span> <a href="#">Action</a>
-										<a href="#">Triler</a></li>
+										<li><span>Genre:</span> 
+											<% @song.genres.each do |genre| %>
+												<%= link_to genre.name, genre_path %>
+											<% end %>
+										</li>
 										<li><span>Artist:</span> <%= @song.artist %></li>
 										<li>
 											<% if current_user %>
@@ -380,7 +383,7 @@
 								<div class="card__content">
 									<h3 class="card__title"><a href="#">I Dream in Another Language</a></h3>
 									<span class="card__category">
-										<a href="#">Action</a>
+										<a href="#"><></a>
 										<a href="#">Triler</a>
 									</span>
 									<span class="card__rate"><i class="icon ion-ios-star"></i>8.4</span>
