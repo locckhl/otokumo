@@ -218,15 +218,18 @@
 										</ul>
 
 										<!--<form action="#" class="form">-->
-											<%= form_with(model: @comment, local: true, :class => "form") do |form| %>
-								                <!--<div class= "field">-->
-								                  <%= form.text_area :comment, :class => "form__textarea", :placeholder => "Add comment" %>
-								                  <%= form.hidden_field :song_id, :value => @song.id %>
-								                <!--</div>-->
-								                <!--<div class="actions">-->
-								                  <%= form.submit 'Send',:style => "transition: 0.4s ease;cursor: pointer;border:none", :class => "form__btn" %>
-								                <!--</div>-->
-								              <% end %>
+										<% if current_user %>
+						                 	<%= form_with(model: @comment, local: true, :class => "form") do |form| %>
+							                <!--<div class= "field">-->
+							                  <%= form.text_area :comment, :class => "form__textarea", :placeholder => "Add comment" %>
+							                  <%= form.hidden_field :song_id, :value => @song.id %>
+							                <!--</div>-->
+							                <!--<div class="actions">-->
+							                  <%= form.submit 'Send',:style => "transition: 0.4s ease;cursor: pointer;border:none", :class => "form__btn" %>
+							                <!--</div>-->
+							              <% end %>
+							            <% end %> 
+										
 											<!--<textarea id="text" name="text" class="form__textarea" placeholder="Add comment"></textarea>-->
 											<!--<button type="button" class="form__btn">Send</button>-->
 										<!--</form>-->
@@ -353,7 +356,7 @@
 						<!--	 end project gallery -->
 						<!--</div>-->
 					</div>
-					 end content tabs 
+					 <!--end content tabs -->
 				</div>
 
 				<!-- sidebar -->
