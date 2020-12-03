@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :genres
   resources :comments
-  resources :songs
+  resources :songs do
+  resources :likes
+  end
 
   get 'users/show'
   devise_for :users

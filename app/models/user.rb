@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
   has_many :songs
+  has_many :likes, dependent: :destroy
 end

@@ -8,5 +8,5 @@ class Song < ApplicationRecord
     #has_many :genres, :through => :song_genres
     has_and_belongs_to_many :genres
     belongs_to :user
-  
+    has_many :likes, dependent: :destroy
 end
