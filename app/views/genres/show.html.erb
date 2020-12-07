@@ -1,15 +1,68 @@
-<section class="section section--first section--bg" style="background:white">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <p id="notice"><%= notice %></p>
-<p>
-<strong>Genre:</strong>
-<%= @genre.name %>
-</p>
-<%= link_to 'Edit', edit_genre_path(@genre) %> |
-<%= link_to 'Back', genres_path %>
-            </div>
+
+
+<section class="section section--first section--bg" data-bg="img/section/section.jpg">
+		<p id="notice" style="color:white"><%= notice %></p>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="section__wrap">
+						<!-- section title -->
+						<h2 class="section__title"><%= @genre.name %> 
+						<% if admin %>
+							| <%= link_to 'Edit', edit_genre_path(@genre) %> 
+						<!-- end content title -->
+						<% end %>
+						
+						</h2>
+						
+						<!-- end section title -->
+
+						<!-- breadcrumb -->
+						<ul class="breadcrumb">
+							<li class="breadcrumb__item"><a href="#">Home</a></li>
+							<li class="breadcrumb__item">Genre</li>
+							<li class="breadcrumb__item breadcrumb__item--active"><%= @genre.name %></li>
+						</ul>
+						<!-- end breadcrumb -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+		<div class="catalog" style="margin-top:50px">
+		<div class="container">
+			<div class="row">
+				<!-- card -->
+				<% @genre.songs.each do |song| %>
+				    
+					<div class="col-6 col-sm-4 col-lg-3 col-xl-2">
+						<div class="card">
+							<div class="card__cover">
+								<!--<img src="img/covers/cover.jpg" alt="">-->
+								<% if song.image.attached? %>
+                                   <%= image_tag song.image  %>
+                                 <% end %>
+                                 <%= link_to song, :class => "card__play" do %>
+                                 	<i class="icon ion-ios-play"></i>
+                                 <% end %>
+								<!--<a href="#" class="card__play">-->
+									
+								<!--</a>-->
+							</div>
+							<div class="card__content">
+								<h3 class="card__title"><a href="#"><%= song.title %></a></h3>
+								<span class="card__category">
+									<% song.genres.each do |genre| %>
+										<a href="/genres/<%= genre.id %>"><%= genre.name %></a>
+									<% end %>
+								</span>
+							</div>
+						</div>
+					</div>
+					<!-- end card -->
+				<% end %>
+
+			</div>
 		</div>
 	</div>
-</section>

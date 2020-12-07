@@ -1,22 +1,40 @@
-<%= form_with(model: genre, local: true) do |form| %>
-  <% if genre.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
 
-      <ul>
-        <% genre.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+
+<div class="sign__content" style="align-items:start">
+        				<%= form_with(model: genre, local: true, :class => "sign__form") do |form| %>
+                  <% if genre.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
+                
+                      <ul>
+                        <% genre.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
   
-  <div class="field">
-     <%= form.label :name %>
-     <%= form.text_area :name %>
-   </div>
+        					<!--<a href="index.html" class="sign__logo">-->
+        					<!--	<img src="img/logo.svg" alt="">-->
+        					<!--</a>-->
+        					<%= link_to root_path, :class => "sign__logo" do %>	
+        						<%= image_pack_tag "img/logo.svg" %>
+        					<% end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+                    <div class="field sign__group">
+                      <%= form.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Name of genre", :class => "sign__input" %>
+                    </div>
+               
+                            
+    						  <div class="actions", style="width:100%">
+                                <%= form.submit 'Submit', :style => "transition: 0.4s ease;cursor: pointer;border:none", :class => "sign__btn" %>
+                              </div>
+							
+              <% if action_name == "edit" %>
+							  <span class="sign__text"> New genre ? <%= link_to 'New genre', new_genre_path %></span>
+							<% end %>
+						<!--</form>-->
+						<% end %>
+						<!-- registration form -->
+
+</div>
